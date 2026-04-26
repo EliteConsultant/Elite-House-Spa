@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite House Spa · Digital Presence Audit 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a961; --gold-dim: #8a6f3a;
+    --dark: #0c0b09; --dark3: #161410; --dark4: #1e1b12; --dark5: #26221a;
+    --green: #4caf7d; --amber: #d4882a; --blue: #6aaee8;
+    --text: #cfc0a0; --text-dim: #6a5838; --white: #f2ead8;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { overflow-x:hidden; -webkit-text-size-adjust:100%; }
+  body { overflow-x:hidden; max-width:100%; background:#0c0b09; font-family:'Poppins',sans-serif; color:var(--text); font-size:15px; line-height:1.65; }
+  img, svg, video { max-width:100%; height:auto; display:block; }
+
+  .page { width:100%; min-height:100svh; background:var(--dark); display:flex; flex-direction:column; margin-bottom:0; page-break-after:always; overflow:hidden; }
+  .gold-bar { height:5px; background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-dim)); flex-shrink:0; }
+
+  .page-header { padding:clamp(28px,5vw,48px) clamp(20px,6vw,64px) 0; text-align:center; position:relative; margin-bottom:clamp(20px,3vw,36px); flex-shrink:0; }
+  .page-num { position:absolute; top:clamp(28px,5vw,48px); right:clamp(20px,6vw,64px); font-size:11px; color:var(--text-dim); letter-spacing:2px; }
+  .eyebrow { font-size:clamp(9px,1.5vw,11px); letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+  .h1 { font-family:'Playfair Display',serif; font-size:clamp(28px,5vw,52px); font-weight:900; color:var(--white); line-height:1.05; }
+  .h1 em { color:var(--gold); font-style:italic; }
+  .page-body { flex:1; padding:0 clamp(20px,6vw,64px) clamp(28px,4vw,44px); display:flex; flex-direction:column; gap:clamp(16px,2.5vw,26px); }
+  .page-footer { padding:clamp(12px,2vw,18px) clamp(20px,6vw,64px); border-top:1px solid rgba(201,169,97,0.12); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; flex-shrink:0; }
+  .ft { font-size:10px; letter-spacing:2px; text-transform:uppercase; }
+  .ft.brand { color:var(--gold-dim); } .ft.conf { color:var(--text-dim); }
+
+  .card { background:var(--dark3); border:1px solid rgba(201,169,97,0.14); border-radius:4px; padding:clamp(16px,3vw,26px); }
+  .card-title { font-size:clamp(9px,1.5vw,11px); letter-spacing:3px; text-transform:uppercase; color:var(--gold); text-align:center; margin-bottom:clamp(14px,2vw,20px); }
+
+  .chip { display:inline-block; font-size:10px; letter-spacing:1px; font-weight:700; text-transform:uppercase; padding:4px 10px; border-radius:3px; white-space:nowrap; }
+  .chip.blue  { background:rgba(106,174,232,0.15); color:var(--blue); }
+  .chip.amber { background:rgba(212,136,42,0.15);  color:var(--amber); }
+  .chip.green { background:rgba(76,175,125,0.15);  color:var(--green); }
+  .chip.grey  { background:rgba(130,130,130,0.15); color:#aaa; }
+  .chip.gold  { background:rgba(201,169,97,0.15);  color:var(--gold); }
+
+  .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(12px,2vw,22px); }
+  .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(10px,1.8vw,18px); }
+  .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(10px,1.8vw,18px); }
+  .grid-5 { display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(8px,1.5vw,14px); }
+  .grid-6 { display:grid; grid-template-columns:repeat(6,1fr); gap:clamp(8px,1.5vw,14px); }
+
+  @media(max-width:900px) { .grid-4,.grid-5,.grid-6 { grid-template-columns:repeat(3,1fr); } }
+  @media(max-width:700px) { .grid-2 { grid-template-columns:1fr; } .grid-3 { grid-template-columns:repeat(2,1fr); } .grid-4,.grid-5,.grid-6 { grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:480px) {
+    .grid-2,.grid-3,.grid-4,.grid-5,.grid-6 { grid-template-columns:1fr; }
+    .h1 { font-size:26px; } .card { padding:14px; }
+    .c-meta { grid-template-columns:1fr 1fr !important; }
+    .chip { font-size:9px; padding:3px 8px; } .kpi-num { font-size:28px; }
+    .s-row { flex-wrap:wrap; gap:6px; }
+    [style*="grid-template-columns"] { grid-template-columns:1fr !important; }
+  }
+
+  .s-row { display:flex; justify-content:space-between; align-items:center; padding:12px 14px; background:var(--dark4); border-radius:3px; gap:10px; }
+  .s-row + .s-row { margin-top:7px; }
+  .s-label { font-size:13px; color:var(--text); flex:1; min-width:0; }
+
+  .hbar-row { display:flex; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap; }
+  .hbar-row:last-child { margin-bottom:0; }
+  .hbar-name { font-size:12px; color:var(--text); width:130px; flex-shrink:0; }
+  .hbar-name span { display:block; font-size:10px; color:var(--text-dim); }
+  .hbar-track { flex:1; min-width:60px; height:10px; background:var(--dark5); border-radius:5px; overflow:hidden; }
+  .hbar-fill { height:100%; border-radius:5px; }
+  .hbar-val { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; min-width:50px; text-align:right; }
+
+  .callout { padding:16px 18px; border-radius:3px; border-left:4px solid; }
+  .callout.amber { background:rgba(212,136,42,0.06); border-color:var(--amber); }
+  .callout.green { background:rgba(76,175,125,0.06); border-color:var(--green); }
+  .callout.blue  { background:rgba(106,174,232,0.06); border-color:var(--blue); }
+  .callout.gold  { background:rgba(201,169,97,0.06); border-color:var(--gold); }
+  .callout h4 { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; text-align:center; margin-bottom:8px; }
+  .callout.amber h4 { color:var(--amber); } .callout.green h4 { color:var(--green); }
+  .callout.blue h4  { color:var(--blue);  } .callout.gold h4  { color:var(--gold);  }
+  .callout p { font-size:13px; line-height:1.75; color:var(--text); text-align:center; }
+
+  .kpi { background:var(--dark4); border:1px solid rgba(201,169,97,0.12); border-radius:3px; padding:16px 12px; text-align:center; }
+  .kpi-num { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,36px); font-weight:900; line-height:1; margin-bottom:6px; }
+  .kpi-lbl { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--text-dim); }
+
+  .radial-wrap { display:flex; flex-direction:column; align-items:center; gap:8px; max-width:130px; margin:0 auto; }
+  .radial-name { font-size:12px; font-weight:600; color:var(--white); text-align:center; }
+  .radial-sub  { font-size:10px; color:var(--text-dim); text-align:center; margin-top:-3px; }
+
+  .cover-body { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:clamp(40px,7vw,70px) clamp(20px,6vw,72px); text-align:center; position:relative; }
+  .cover-wm { position:absolute; font-family:'Playfair Display',serif; font-size:clamp(140px,35vw,480px); font-weight:900; color:rgba(201,169,97,0.025); left:50%; top:50%; transform:translate(-50%,-50%); pointer-events:none; line-height:1; overflow:hidden; white-space:nowrap; }
+  .c-eyebrow { font-size:clamp(9px,1.5vw,11px); letter-spacing:5px; text-transform:uppercase; color:var(--gold); margin-bottom:18px; }
+  .c-title { font-family:'Playfair Display',serif; font-size:clamp(48px,9vw,88px); font-weight:900; color:var(--white); line-height:0.95; margin-bottom:12px; }
+  .c-title span { color:var(--gold); font-style:italic; display:block; }
+  .c-sub { font-family:'Playfair Display',serif; font-size:clamp(13px,2.5vw,20px); color:var(--gold-dim); font-style:italic; margin-bottom:28px; }
+  .c-divider { width:60px; height:1px; background:var(--gold); margin:0 auto 28px; }
+  .c-meta { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(201,169,97,0.12); border:1px solid rgba(201,169,97,0.12); width:100%; max-width:720px; margin:0 auto 28px; border-radius:3px; overflow:hidden; }
+  .cmi { background:var(--dark3); padding:clamp(12px,2vw,16px) clamp(10px,2vw,14px); }
+  .cmi label { display:block; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--text-dim); margin-bottom:5px; }
+  .cmi value { display:block; font-size:clamp(12px,2vw,14px); font-weight:600; color:var(--white); }
+  .score-band { width:100%; background:var(--dark3); border:1px solid rgba(201,169,97,0.2); border-radius:4px; padding:clamp(16px,3vw,22px) clamp(18px,3vw,30px); display:flex; align-items:center; gap:18px; flex-wrap:wrap; max-width:720px; margin:0 auto; }
+  .sb-label { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--text-dim); white-space:nowrap; }
+  .sb-score { font-family:'Playfair Display',serif; font-size:clamp(40px,8vw,62px); font-weight:900; color:var(--white); line-height:1; }
+  .sb-of { font-size:16px; color:var(--text-dim); font-family:'Playfair Display',serif; }
+  .sb-track { flex:1; min-width:60px; height:8px; background:var(--dark5); border-radius:4px; overflow:hidden; }
+  .sb-fill { height:100%; border-radius:4px; }
+  .sb-verdict { font-size:12px; font-weight:700; color:var(--blue); letter-spacing:1px; }
+  .cover-footer { padding:clamp(14px,2vw,20px) clamp(20px,6vw,64px); display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(201,169,97,0.12); flex-wrap:wrap; gap:8px; }
+  .ag-name { font-family:'Playfair Display',serif; font-size:clamp(15px,2.5vw,18px); font-weight:700; color:var(--gold); }
+  .ag-sub { font-size:9px; letter-spacing:3px; color:var(--gold-dim); text-transform:uppercase; }
+
+  .pillar { background:var(--dark3); border:1px solid rgba(201,169,97,0.14); border-radius:4px; padding:clamp(18px,3vw,22px) clamp(14px,2vw,16px); display:flex; flex-direction:column; align-items:center; gap:9px; text-align:center; }
+  .pn  { font-family:'Playfair Display',serif; font-size:clamp(32px,4vw,46px); font-weight:900; color:rgba(201,169,97,0.12); line-height:1; }
+  .pt  { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); }
+  .ph  { font-family:'Playfair Display',serif; font-size:clamp(13px,2vw,16px); font-weight:700; color:var(--white); line-height:1.2; }
+  .pillar-li { display:flex; align-items:flex-start; gap:7px; font-size:11px; color:var(--text); text-align:left; width:100%; }
+  .pillar-li span { color:var(--green); flex-shrink:0; font-size:13px; }
+
+  /* viral highlight box */
+  .viral-box { background:rgba(201,169,97,0.06); border:1px solid rgba(201,169,97,0.25); border-radius:4px; padding:18px 20px; text-align:center; }
+
+  @media print { body { background:#0c0b09; } .page { page-break-after:always; min-height:297mm; } }
+</style>
+</head>
+<body>
+
+
+<!-- PAGE 1 — COVER -->
+<div class="page">
+  <div class="gold-bar"></div>
+  <div class="cover-body">
+    <div class="cover-wm">E</div>
+    <div class="c-eyebrow">Elite Consultant · Confidential Digital Assessment</div>
+    <div class="c-title">Elite<span>House Spa</span></div>
+    <div class="c-sub">بيت النخبة للمساج · Riyadh · Digital Presence Audit · April 2026</div>
+    <div class="c-divider"></div>
+    <div class="c-meta">
+      <div class="cmi"><label>Client</label><value>Elite House Spa</value></div>
+      <div class="cmi"><label>Market</label><value>Riyadh · 2 Branches</value></div>
+      <div class="cmi"><label>Audit Date</label><value>April 26, 2026</value></div>
+      <div class="cmi"><label>Active Channels</label><value>6 Platforms</value></div>
+      <div class="cmi"><label>TikTok Peak</label><value>1.7M Views · 1 Video</value></div>
+      <div class="cmi"><label>Prepared By</label><value>Elite Consultant</value></div>
+    </div>
+    <div class="score-band">
+      <div class="sb-label">Overall<br>Digital Health</div>
+      <div class="sb-score">42</div>
+      <div class="sb-of">/100</div>
+      <div class="sb-track"><div class="sb-fill" style="width:42%;background:linear-gradient(90deg,var(--blue),var(--gold));"></div></div>
+      <div class="sb-verdict">Active on All Platforms · Reach Not Converting to Bookings</div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <div><div class="ag-name">Elite Consultant</div><div class="ag-sub">eliteconsultantco.com · Your Compass To Real Growth</div></div>
+    <div style="font-size:10px;color:var(--text-dim);letter-spacing:2px;">CONFIDENTIAL · APRIL 2026</div>
+  </div>
+</div>
+
+
+<!-- PAGE 2 — SCORECARD -->
+<div class="page">
+  <div class="gold-bar"></div>
+  <div class="page-header">
+    <div class="eyebrow">Section 01 · Platform Health Overview</div>
+    <div class="h1">Digital Scorecard &<em> Key Signals</em></div>
+    <div class="page-num">02 / 05</div>
+  </div>
+  <div class="page-body">
+
+    <div class="grid-6">
+      <div class="radial-wrap">
+        <svg width="100%" height="auto" viewBox="0 0 110 110" preserveAspectRatio="xMidYMid meet">
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--dark5)" stroke-width="12"/>
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--amber)" stroke-width="12" style="stroke-dasharray:110 276;" stroke-linecap="round" transform="rotate(-90 55 55)"/>
+          <text x="55" y="60" text-anchor="middle" font-family="Playfair Display,serif" font-size="24" font-weight="900" fill="var(--amber)">40</text>
+        </svg>
+        <div class="radial-name">Instagram</div>
+        <div class="radial-sub">1,847 followers · active</div>
+        <div class="chip amber">Low Engagement</div>
+      </div>
+      <div class="radial-wrap">
+        <svg width="100%" height="auto" viewBox="0 0 110 110" preserveAspectRatio="xMidYMid meet">
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--dark5)" stroke-width="12"/>
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--gold)" stroke-width="12" style="stroke-dasharray:138 276;" stroke-linecap="round" transform="rotate(-90 55 55)"/>
+          <text x="55" y="60" text-anchor="middle" font-family="Playfair Display,serif" font-size="24" font-weight="900" fill="var(--gold)">50</text>
+        </svg>
+        <div class="radial-name">TikTok</div>
+        <div class="radial-sub">2,720 followers · 1.7M peak</div>
+        <div class="chip gold">Inconsistent</div>
+      </div>
+      <div class="radial-wrap">
+        <svg width="100%" height="auto" viewBox="0 0 110 110" preserveAspectRatio="xMidYMid meet">
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--dark5)" stroke-width="12"/>
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--green)" stroke-width="12" style="stroke-dasharray:166 276;" stroke-linecap="round" transform="rotate(-90 55 55)"/>
+          <text x="55" y="60" text-anchor="middle" font-family="Playfair Display,serif" font-size="24" font-weight="900" fill="var(--green)">60</text>
+        </svg>
+        <div class="radial-name">Snapchat</div>
+        <div class="radial-sub">Active · regular content</div>
+        <div class="chip green">Active ✓</div>
+      </div>
+      <div class="radial-wrap">
+        <svg width="100%" height="auto" viewBox="0 0 110 110" preserveAspectRatio="xMidYMid meet">
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--dark5)" stroke-width="12"/>
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--green)" stroke-width="12" style="stroke-dasharray:166 276;" stroke-linecap="round" transform="rotate(-90 55 55)"/>
+          <text x="55" y="60" text-anchor="middle" font-family="Playfair Display,serif" font-size="24" font-weight="900" fill="var(--green)">60</text>
+        </svg>
+        <div class="radial-name">Google</div>
+        <div class="radial-sub">4.4★ · 57 reviews</div>
+        <div class="chip green">Responding ✓</div>
+      </div>
+      <div class="radial-wrap">
+        <svg width="100%" height="auto" viewBox="0 0 110 110" preserveAspectRatio="xMidYMid meet">
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--dark5)" stroke-width="12"/>
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--blue)" stroke-width="12" style="stroke-dasharray:28 276;" stroke-linecap="round" transform="rotate(-90 55 55)"/>
+          <text x="55" y="60" text-anchor="middle" font-family="Playfair Display,serif" font-size="24" font-weight="900" fill="var(--blue)">10</text>
+        </svg>
+        <div class="radial-name">YouTube</div>
+        <div class="radial-sub">9 videos · 1,320 views</div>
+        <div class="chip blue">Early Stage</div>
+      </div>
+      <div class="radial-wrap">
+        <svg width="100%" height="auto" viewBox="0 0 110 110" preserveAspectRatio="xMidYMid meet">
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--dark5)" stroke-width="12" stroke-dasharray="6 4"/>
+          <text x="55" y="60" text-anchor="middle" font-family="Playfair Display,serif" font-size="24" font-weight="900" fill="#555">0</text>
+        </svg>
+        <div class="radial-name">X/Twitter</div>
+        <div class="radial-sub">Account created · 0 posts</div>
+        <div class="chip grey">Unused</div>
+      </div>
+    </div>
+
+    <!-- KPI strip -->
+    <div class="grid-4">
+      <div class="kpi" style="border-top:3px solid var(--gold);">
+        <div class="kpi-num" style="color:var(--gold);">1.7M</div>
+        <div class="kpi-lbl">TikTok Peak Views</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--amber);">
+        <div class="kpi-num" style="color:var(--amber);">~200</div>
+        <div class="kpi-lbl">TikTok Avg Views (Other Videos)</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--blue);">
+        <div class="kpi-num" style="color:var(--blue);">1,847</div>
+        <div class="kpi-lbl">Instagram Followers</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--green);">
+        <div class="kpi-num" style="color:var(--green);">4.4★</div>
+        <div class="kpi-lbl">Google · 57 Reviews</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">All Platform Status</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="s-row" style="background:rgba(201,169,97,0.07);border:1px solid rgba(201,169,97,0.15);">
+            <span class="s-label">🎵 TikTok · 2,720 followers · 1 viral video (1.7M)</span>
+            <div class="chip gold">Inconsistent</div>
+          </div>
+          <div class="s-row" style="background:rgba(212,136,42,0.07);border:1px solid rgba(212,136,42,0.15);">
+            <span class="s-label">📸 Instagram · 1,847 followers · 51 posts · active</span>
+            <div class="chip amber">No Bookings Path</div>
+          </div>
+          <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.15);">
+            <span class="s-label">👻 Snapchat · active posting · good content quality</span>
+            <div class="chip green">Active ✓</div>
+          </div>
+          <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.15);">
+            <span class="s-label">🔍 Google · 4.4★ · 57 reviews · responding actively</span>
+            <div class="chip green">Responding ✓</div>
+          </div>
+          <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.15);">
+            <span class="s-label">🌐 Website · elitehousespa.sa · professional · functional</span>
+            <div class="chip green">Strong ✓</div>
+          </div>
+          <div class="s-row" style="background:rgba(106,174,232,0.07);border:1px solid rgba(106,174,232,0.15);">
+            <span class="s-label">▶ YouTube · 9 videos · 1,320 total views</span>
+            <div class="chip blue">Very Low Reach</div>
+          </div>
+          <div class="s-row" style="background:rgba(100,100,100,0.07);border:1px solid rgba(100,100,100,0.15);">
+            <span class="s-label">🐦 X/Twitter · account registered · 0 posts ever</span>
+            <div class="chip grey">Unused</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="viral-box">
+          <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">The Hidden Proof</div>
+          <div style="font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,64px);font-weight:900;color:var(--white);line-height:1;margin-bottom:6px;">1.7M</div>
+          <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">Views · Single TikTok Video</div>
+          <div style="font-size:13px;color:var(--text);">One video proved demand exists. Now replicate consistently.</div>
+        </div>
+        <div class="callout amber">
+          <h4>Visits Are Not Converting to Bookings</h4>
+          <p>Good content, no clear booking path. Every post needs a direct link to book.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="ft brand">Elite Consultant · Digital Audit</span>
+    <span class="ft conf">Confidential · Elite House Spa · April 2026</span>
+  </div>
+</div>
+
+
+<!-- PAGE 3 — TIKTOK & INSTAGRAM -->
+<div class="page">
+  <div class="gold-bar"></div>
+  <div class="page-header">
+    <div class="eyebrow">Section 02 · TikTok & Instagram</div>
+    <div class="h1">One Viral Moment,<em> Not Yet a System</em></div>
+    <div class="page-num">03 / 05</div>
+  </div>
+  <div class="page-body">
+
+    <div class="grid-2" style="flex:1;">
+
+      <!-- TikTok -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card">
+          <div class="card-title" style="color:var(--gold);">TikTok @elitehousespa · 1.7M Peak · Still Not Repeated</div>
+
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+            <div class="kpi" style="border-top:3px solid var(--white);">
+              <div class="kpi-num" style="color:var(--white);">2,720</div>
+              <div class="kpi-lbl">Followers</div>
+            </div>
+            <div class="kpi" style="border-top:3px solid var(--gold);">
+              <div class="kpi-num" style="color:var(--gold);">1.7M</div>
+              <div class="kpi-lbl">Top Video Views</div>
+            </div>
+            <div class="kpi" style="border-top:3px solid var(--blue);">
+              <div class="kpi-num" style="color:var(--blue);">~200</div>
+              <div class="kpi-lbl">Other Videos Avg</div>
+            </div>
+          </div>
+
+          <!-- Video view bars -->
+          <div style="margin-bottom:16px;">
+            <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);text-align:center;margin-bottom:12px;">View Count: Viral vs Everything Else</div>
+            <div class="hbar-row">
+              <div class="hbar-name">Top video<span>Viral</span></div>
+              <div class="hbar-track"><div class="hbar-fill" style="width:100%;background:var(--gold);"></div></div>
+              <div class="hbar-val" style="color:var(--gold);font-size:14px;">1.7M</div>
+            </div>
+            <div class="hbar-row">
+              <div class="hbar-name">2nd best</div>
+              <div class="hbar-track"><div class="hbar-fill" style="width:4%;background:var(--amber);min-width:6px;"></div></div>
+              <div class="hbar-val" style="color:var(--amber);font-size:14px;">682</div>
+            </div>
+            <div class="hbar-row">
+              <div class="hbar-name">Image posts<span>TikTok slides</span></div>
+              <div class="hbar-track"><div class="hbar-fill" style="width:0.5%;background:var(--blue);min-width:4px;"></div></div>
+              <div class="hbar-val" style="color:var(--blue);font-size:14px;">~0</div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px;">
+            <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.12);">
+              <span class="s-label">Video content published</span>
+              <div class="chip green">Yes · Good Quality ✓</div>
+            </div>
+            <div class="s-row" style="background:rgba(201,68,68,0.07);border:1px solid rgba(212,136,42,0.12);">
+              <span class="s-label">Images on TikTok</span>
+              <div class="chip amber">0 Engagement</div>
+            </div>
+            <div class="s-row" style="background:rgba(106,174,232,0.07);border:1px solid rgba(106,174,232,0.12);">
+              <span class="s-label">Paid Spark Ads</span>
+              <div class="chip blue">None Detected</div>
+            </div>
+            <div class="s-row" style="background:rgba(106,174,232,0.07);border:1px solid rgba(106,174,232,0.12);">
+              <span class="s-label">Posting schedule</span>
+              <div class="chip blue">Irregular</div>
+            </div>
+          </div>
+
+          <div class="callout gold">
+            <h4>The 1.7M Video Is the Blueprint</h4>
+            <p>Stop posting images on TikTok · zero engagement every time. Replicate the video format, post consistently, boost with Spark Ads.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instagram -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card">
+          <div class="card-title" style="color:var(--amber);">Instagram @elitehousespa · Good Visuals · Low Conversion</div>
+
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+            <div class="kpi">
+              <div class="kpi-num" style="color:var(--white);">1,847</div>
+              <div class="kpi-lbl">Followers</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-num" style="color:var(--white);">51</div>
+              <div class="kpi-lbl">Posts</div>
+            </div>
+            <div class="kpi" style="border-top:3px solid var(--green);">
+              <div class="kpi-num" style="color:var(--green);">Active</div>
+              <div class="kpi-lbl">Weekly Posting</div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px;">
+            <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.12);">
+              <span class="s-label">Story Highlights · 5 active</span>
+              <div class="chip green">Active ✓</div>
+            </div>
+            <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.12);">
+              <span class="s-label">Linktree bio link</span>
+              <div class="chip green">Present ✓</div>
+            </div>
+            <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.12);">
+              <span class="s-label">Content quality</span>
+              <div class="chip green">Premium ✓</div>
+            </div>
+            <div class="s-row" style="background:rgba(212,136,42,0.07);border:1px solid rgba(212,136,42,0.12);">
+              <span class="s-label">Reels published</span>
+              <div class="chip amber">Very Few</div>
+            </div>
+            <div class="s-row" style="background:rgba(212,136,42,0.07);border:1px solid rgba(212,136,42,0.12);">
+              <span class="s-label">Recent post engagement</span>
+              <div class="chip amber">Near Zero</div>
+            </div>
+            <div class="s-row" style="background:rgba(106,174,232,0.07);border:1px solid rgba(106,174,232,0.12);">
+              <span class="s-label">Booking CTA in captions</span>
+              <div class="chip blue">Inconsistent</div>
+            </div>
+          </div>
+
+          <div class="callout amber">
+            <h4>Beautiful Content · No Booking Momentum</h4>
+            <p>Strong visuals. Missing: booking CTA in every caption, Reels replacing static posts, monthly Reels Boost.</p>
+          </div>
+        </div>
+
+        <!-- What booking-focused content looks like -->
+        <div class="card">
+          <div class="card-title">What Gets People to Book</div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.12);">
+              <span class="s-label">🎬 Show the experience (first 3 seconds hook)</span>
+              <div class="chip green">Drives Views</div>
+            </div>
+            <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.12);">
+              <span class="s-label">📞 Direct phone or link in caption</span>
+              <div class="chip green">Drives Calls</div>
+            </div>
+            <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.12);">
+              <span class="s-label">⏰ Urgency: limited slots / today only</span>
+              <div class="chip green">Drives Bookings</div>
+            </div>
+            <div class="s-row" style="background:rgba(201,169,97,0.07);border:1px solid rgba(201,169,97,0.15);">
+              <span class="s-label">💰 Offer visible in first frame</span>
+              <div class="chip gold">Boosts Conversions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="ft brand">Elite Consultant · Digital Audit</span>
+    <span class="ft conf">Confidential · Elite House Spa · April 2026</span>
+  </div>
+</div>
+
+
+<!-- PAGE 4 — GOOGLE, WEBSITE, SNAPCHAT -->
+<div class="page">
+  <div class="gold-bar"></div>
+  <div class="page-header">
+    <div class="eyebrow">Section 03 · Google · Website · Snapchat</div>
+    <div class="h1">Strong Foundations,<em> One Critical Gap</em></div>
+    <div class="page-num">04 / 05</div>
+  </div>
+  <div class="page-body">
+
+    <div class="grid-2" style="flex:1;">
+
+      <!-- Left -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+
+        <div class="card">
+          <div class="card-title" style="color:var(--green);">Google · Al Narjis · 4.4★ · 57 Reviews</div>
+          <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-bottom:14px;">
+            <div style="text-align:center;flex-shrink:0;">
+              <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:var(--gold);line-height:1;">4.4</div>
+              <div style="font-size:16px;color:#f4b942;letter-spacing:2px;margin-bottom:4px;">★★★★☆</div>
+              <div style="font-size:11px;color:var(--text-dim);">57 Reviews</div>
+            </div>
+            <div style="flex:1;min-width:120px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:var(--text-dim);width:20px;">5★</span><div style="flex:1;height:8px;background:var(--dark5);border-radius:4px;overflow:hidden;"><div style="width:62%;height:100%;background:#f4b942;border-radius:4px;"></div></div><span style="font-size:11px;color:var(--text-dim);width:34px;text-align:right;">~35</span></div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:var(--text-dim);width:20px;">4★</span><div style="flex:1;height:8px;background:var(--dark5);border-radius:4px;overflow:hidden;"><div style="width:15%;height:100%;background:#f4b942;border-radius:4px;"></div></div><span style="font-size:11px;color:var(--text-dim);width:34px;text-align:right;">~9</span></div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:var(--text-dim);width:20px;">3★</span><div style="flex:1;height:8px;background:var(--dark5);border-radius:4px;overflow:hidden;"><div style="width:5%;height:100%;background:var(--amber);border-radius:4px;"></div></div><span style="font-size:11px;color:var(--text-dim);width:34px;text-align:right;">~3</span></div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:var(--text-dim);width:20px;">2★</span><div style="flex:1;height:8px;background:var(--dark5);border-radius:4px;overflow:hidden;"><div style="width:3%;height:100%;background:var(--amber);border-radius:4px;"></div></div><span style="font-size:11px;color:var(--text-dim);width:34px;text-align:right;">~2</span></div>
+              <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:11px;color:var(--text-dim);width:20px;">1★</span><div style="flex:1;height:8px;background:var(--dark5);border-radius:4px;overflow:hidden;"><div style="width:14%;height:100%;background:var(--blue);border-radius:4px;"></div></div><span style="font-size:11px;color:var(--text-dim);width:34px;text-align:right;">~8</span></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+            <div style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.15);padding:10px;border-radius:3px;text-align:center;">
+              <div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">Owner Responses</div>
+              <div style="font-size:13px;font-weight:700;color:var(--green);">Active ✓</div>
+            </div>
+            <div style="background:rgba(212,136,42,0.07);border:1px solid rgba(212,136,42,0.15);padding:10px;border-radius:3px;text-align:center;">
+              <div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">Review Volume</div>
+              <div style="font-size:13px;font-weight:700;color:var(--amber);">57 · Needs Growth</div>
+            </div>
+          </div>
+          <div class="callout green">
+            <h4>Active Responses · Now Grow the Volume</h4>
+            <p>Responses done right. 57 reviews is small for 2 branches. Send a review request after every session.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Website · elitehousespa.sa</div>
+          <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:12px;">
+            <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.12);">
+              <span class="s-label">Website quality</span>
+              <div class="chip green">Strong ✓</div>
+            </div>
+            <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.12);">
+              <span class="s-label">Services pages · 2 branches</span>
+              <div class="chip green">Complete ✓</div>
+            </div>
+            <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.12);">
+              <span class="s-label">Booking buttons</span>
+              <div class="chip green">Present ✓</div>
+            </div>
+            <div class="s-row" style="background:rgba(212,136,42,0.07);border:1px solid rgba(212,136,42,0.12);">
+              <span class="s-label">Footer email</span>
+              <div class="chip amber">Not Professional</div>
+            </div>
+            <div class="s-row" style="background:rgba(106,174,232,0.07);border:1px solid rgba(106,174,232,0.12);">
+              <span class="s-label">SEO depth</span>
+              <div class="chip blue">Needs Depth</div>
+            </div>
+          </div>
+          <div class="callout amber">
+            <h4>One Fix: Replace the Gmail Address</h4>
+            <p>Change support@gmail.com to info@elitehousespa.sa · one fix, instant credibility.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+
+        <div class="card">
+          <div class="card-title" style="color:rgba(255,252,0,0.7);">Snapchat @elitehousespa · Active · Needs Paid Ads</div>
+          <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px;">
+            <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.12);">
+              <span class="s-label">Posting frequency</span>
+              <div class="chip green">Active ✓</div>
+            </div>
+            <div class="s-row" style="background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.12);">
+              <span class="s-label">Content quality</span>
+              <div class="chip green">Good Content ✓</div>
+            </div>
+            <div class="s-row" style="background:rgba(106,174,232,0.07);border:1px solid rgba(106,174,232,0.12);">
+              <span class="s-label">Snap Ads · paid reach</span>
+              <div class="chip blue">None Detected</div>
+            </div>
+            <div class="s-row" style="background:rgba(106,174,232,0.07);border:1px solid rgba(106,174,232,0.12);">
+              <span class="s-label">Follower count</span>
+              <div class="chip blue">Untracked</div>
+            </div>
+          </div>
+          <div style="background:var(--dark4);padding:14px;border-radius:3px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:12px;margin-bottom:14px;">
+            <div style="text-align:center;">
+              <div style="font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:rgba(255,252,0,0.5);line-height:1;">90%+</div>
+              <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-top:4px;">Saudi users on Snapchat</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--green);line-height:1;">✓</div>
+              <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-top:4px;">Elite Spa is present</div>
+            </div>
+          </div>
+          <div class="callout blue">
+            <h4>Presence Good · Now Add Paid Snap Ads</h4>
+            <p>Organic is active. Add Snap Ads to reach high-intent men in Riyadh directly.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">The Booking Funnel Gap</div>
+          <div style="font-size:13px;color:var(--text);text-align:center;margin-bottom:14px;">Every platform is active. The path from content to booking is broken.</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--dark4);border-radius:3px;">
+              <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:rgba(201,169,97,0.3);min-width:28px;">1</div>
+              <div style="font-size:13px;color:var(--text);">Customer sees video</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;background:rgba(212,136,42,0.07);border:1px solid rgba(212,136,42,0.15);border-radius:3px;">
+              <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--amber);min-width:28px;">?</div>
+              <div style="font-size:13px;color:var(--text);">No booking link · <strong style="color:var(--amber);">drops off</strong></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;background:rgba(76,175,125,0.07);border:1px solid rgba(76,175,125,0.15);border-radius:3px;">
+              <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--green);min-width:28px;">✓</div>
+              <div style="font-size:13px;color:var(--text);">CTA in post · <strong style="color:var(--green);">books immediately</strong></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="ft brand">Elite Consultant · Digital Audit</span>
+    <span class="ft conf">Confidential · Elite House Spa · April 2026</span>
+  </div>
+</div>
+
+
+<!-- PAGE 5 — GROWTH SYSTEM -->
+<div class="page">
+  <div class="gold-bar"></div>
+  <div class="page-header">
+    <div class="eyebrow">Section 04 · What Elite Consultant Delivers</div>
+    <div class="h1">From Views<em> to Bookings</em></div>
+    <div class="page-num">05 / 05</div>
+  </div>
+  <div class="page-body">
+
+    <div class="grid-4">
+      <div class="pillar" style="border-top:4px solid var(--gold);">
+        <div class="pn">01</div>
+        <div class="pt">Content</div>
+        <div class="ph">Booking-Driven Video</div>
+        <div style="display:flex;flex-direction:column;gap:7px;width:100%;">
+          <div class="pillar-li"><span>✓</span> Replicate 1.7M video formula</div>
+          <div class="pillar-li"><span>✓</span> Weekly Reels on IG and TikTok</div>
+          <div class="pillar-li"><span>✓</span> Stop images on TikTok entirely</div>
+          <div class="pillar-li"><span>✓</span> Booking CTA in every caption</div>
+          <div class="pillar-li"><span>✓</span> Offer-first content design</div>
+        </div>
+      </div>
+      <div class="pillar" style="border-top:4px solid var(--blue);">
+        <div class="pn">02</div>
+        <div class="pt">Advertising</div>
+        <div class="ph">Paid Reach to Bookings</div>
+        <div style="display:flex;flex-direction:column;gap:7px;width:100%;">
+          <div class="pillar-li"><span>✓</span> TikTok Spark Ads on top videos</div>
+          <div class="pillar-li"><span>✓</span> Snapchat Ads · Riyadh men</div>
+          <div class="pillar-li"><span>✓</span> Instagram Reels Boost</div>
+          <div class="pillar-li"><span>✓</span> Retargeting website visitors</div>
+          <div class="pillar-li"><span>✓</span> Monthly ad budget optimization</div>
+        </div>
+      </div>
+      <div class="pillar" style="border-top:4px solid var(--amber);">
+        <div class="pn">03</div>
+        <div class="pt">Conversion</div>
+        <div class="ph">Turn Views into Calls</div>
+        <div style="display:flex;flex-direction:column;gap:7px;width:100%;">
+          <div class="pillar-li"><span>✓</span> Direct booking link in every bio</div>
+          <div class="pillar-li"><span>✓</span> WhatsApp booking flow optimized</div>
+          <div class="pillar-li"><span>✓</span> Website SEO for Riyadh spa searches</div>
+          <div class="pillar-li"><span>✓</span> Fix Gmail · use brand email</div>
+          <div class="pillar-li"><span>✓</span> Offer pages built per branch</div>
+        </div>
+      </div>
+      <div class="pillar" style="border-top:4px solid var(--green);">
+        <div class="pn">04</div>
+        <div class="pt">Google</div>
+        <div class="ph">Reviews & Visibility</div>
+        <div style="display:flex;flex-direction:column;gap:7px;width:100%;">
+          <div class="pillar-li"><span>✓</span> Sustain review response protocol</div>
+          <div class="pillar-li"><span>✓</span> Post-session review requests</div>
+          <div class="pillar-li"><span>✓</span> Target 200+ reviews per branch</div>
+          <div class="pillar-li"><span>✓</span> Google Posts weekly</div>
+          <div class="pillar-li"><span>✓</span> Photo library updated</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monthly delivery -->
+    <div class="card">
+      <div class="card-title">Monthly Content Delivery</div>
+      <div class="grid-4" style="margin-bottom:20px;">
+        <div style="text-align:center;">
+          <svg width="100%" height="auto" style="max-width:100px;margin:0 auto;display:block;" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+            <circle cx="50" cy="50" r="38" fill="none" stroke="var(--dark5)" stroke-width="11"/>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="var(--gold)" stroke-width="11" stroke-dasharray="239" transform="rotate(-90 50 50)"/>
+            <text x="50" y="46" text-anchor="middle" font-family="Playfair Display,serif" font-size="24" font-weight="900" fill="var(--white)">12</text>
+            <text x="50" y="61" text-anchor="middle" font-size="9" fill="var(--text-dim)" font-family="Poppins,sans-serif" letter-spacing="1">REELS</text>
+          </svg>
+          <div style="font-size:13px;font-weight:600;color:var(--white);margin-top:8px;">Reels / Month</div>
+          <div style="font-size:11px;color:var(--text-dim);">IG · TikTok · Snap</div>
+        </div>
+        <div style="text-align:center;">
+          <svg width="100%" height="auto" style="max-width:100px;margin:0 auto;display:block;" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+            <circle cx="50" cy="50" r="38" fill="none" stroke="var(--dark5)" stroke-width="11"/>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="var(--amber)" stroke-width="11" stroke-dasharray="239" transform="rotate(-90 50 50)"/>
+            <text x="50" y="46" text-anchor="middle" font-family="Playfair Display,serif" font-size="24" font-weight="900" fill="var(--white)">12</text>
+            <text x="50" y="61" text-anchor="middle" font-size="9" fill="var(--text-dim)" font-family="Poppins,sans-serif" letter-spacing="1">POSTS</text>
+          </svg>
+          <div style="font-size:13px;font-weight:600;color:var(--white);margin-top:8px;">Posts / Month</div>
+          <div style="font-size:11px;color:var(--text-dim);">All platforms</div>
+        </div>
+        <div style="text-align:center;">
+          <svg width="100%" height="auto" style="max-width:100px;margin:0 auto;display:block;" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+            <circle cx="50" cy="50" r="38" fill="none" stroke="var(--dark5)" stroke-width="11"/>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="var(--green)" stroke-width="11" stroke-dasharray="239" transform="rotate(-90 50 50)"/>
+            <text x="50" y="46" text-anchor="middle" font-family="Playfair Display,serif" font-size="24" font-weight="900" fill="var(--white)">10</text>
+            <text x="50" y="61" text-anchor="middle" font-size="9" fill="var(--text-dim)" font-family="Poppins,sans-serif" letter-spacing="1">STORIES</text>
+          </svg>
+          <div style="font-size:13px;font-weight:600;color:var(--white);margin-top:8px;">Stories / Week</div>
+          <div style="font-size:11px;color:var(--text-dim);">IG · Snap</div>
+        </div>
+        <div style="text-align:center;">
+          <svg width="100%" height="auto" style="max-width:100px;margin:0 auto;display:block;" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+            <circle cx="50" cy="50" r="38" fill="none" stroke="var(--dark5)" stroke-width="11"/>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="var(--blue)" stroke-width="11" stroke-dasharray="239" transform="rotate(-90 50 50)"/>
+            <text x="50" y="44" text-anchor="middle" font-family="Playfair Display,serif" font-size="16" font-weight="900" fill="var(--white)">ADS</text>
+            <text x="50" y="61" text-anchor="middle" font-size="9" fill="var(--text-dim)" font-family="Poppins,sans-serif" letter-spacing="1">BOOSTED</text>
+          </svg>
+          <div style="font-size:13px;font-weight:600;color:var(--white);margin-top:8px;">Ad Campaigns</div>
+          <div style="font-size:11px;color:var(--text-dim);">Best-performing videos</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(201,169,97,0.12);padding-top:16px;">
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);text-align:center;margin-bottom:14px;">Campaigns Boosted On</div>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <div style="background:rgba(193,53,132,0.1);border:1px solid rgba(193,53,132,0.2);border-radius:3px;padding:10px 18px;text-align:center;">
+            <div style="font-size:18px;margin-bottom:4px;">📸</div>
+            <div style="font-size:13px;font-weight:600;color:#d990c8;">Instagram</div>
+            <div style="font-size:10px;color:var(--text-dim);">Reels Boost</div>
+          </div>
+          <div style="background:rgba(106,174,232,0.06);border:1px solid rgba(106,174,232,0.2);border-radius:3px;padding:10px 18px;text-align:center;">
+            <div style="font-size:18px;margin-bottom:4px;">🎵</div>
+            <div style="font-size:13px;font-weight:600;color:var(--blue);">TikTok</div>
+            <div style="font-size:10px;color:var(--text-dim);">Spark Ads</div>
+          </div>
+          <div style="background:rgba(255,252,0,0.04);border:1px solid rgba(255,252,0,0.14);border-radius:3px;padding:10px 18px;text-align:center;">
+            <div style="font-size:18px;margin-bottom:4px;">👻</div>
+            <div style="font-size:13px;font-weight:600;color:#fffca0;">Snapchat</div>
+            <div style="font-size:10px;color:var(--text-dim);">Story Ads</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="background:var(--dark3);border:1px solid rgba(201,169,97,0.2);border-radius:4px;padding:clamp(18px,3vw,26px) clamp(20px,3vw,32px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+      <div style="font-family:'Playfair Display',serif;font-size:clamp(16px,3vw,22px);font-style:italic;color:var(--gold);line-height:1.45;flex:1;min-width:200px;">
+        "One video reached 1.7 million people.<br>The content works.<br>Now let's make sure every viewer<span style="color:var(--white);font-style:normal;font-weight:700;"> knows exactly how to book.</span>"
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;">
+        <div style="background:var(--gold);color:var(--dark);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:13px 28px;border-radius:3px;white-space:nowrap;">Next Step: Strategy Session</div>
+        <div style="font-size:11px;color:var(--text-dim);text-align:right;">eliteconsultantco.com<br><span style="font-size:9px;">Confidential · No financial guarantees implied</span></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="ft brand">Elite Consultant · Your Compass To Real Growth</span>
+    <span class="ft conf">Confidential · Elite House Spa · April 2026</span>
+  </div>
+</div>
+
+</body>
+</html>
