@@ -3,482 +3,423 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite House Spa · Digital Growth Proposal</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Elite House Spa · Growth Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold:#c9a961; --gold-dim:#8a6f3a;
-    --dark:#0c0b09; --dark3:#161410; --dark4:#1e1b12; --dark5:#26221a;
-    --green:#4caf7d; --amber:#d4882a; --blue:#6aaee8;
-    --text:#cfc0a0; --text-dim:#6a5838; --white:#f2ead8;
-  }
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-  html{overflow-x:hidden;-webkit-text-size-adjust:100%;}
-  body{overflow-x:hidden;max-width:100%;background:#0c0b09;font-family:'Poppins',sans-serif;color:var(--text);font-size:15px;line-height:1.65;}
-  img,svg,video{max-width:100%;height:auto;display:block;}
+:root{
+  --gold:#c9a961; --gold-dim:rgba(201,169,97,0.5); --gold-faint:rgba(201,169,97,0.1);
+  --dark:#0d0c0a; --card:#161410; --row:#1c1a14;
+  --white:#f5ede0; --dim:rgba(245,237,224,0.4);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;}
+body{overflow-x:hidden;background:var(--dark);font-family:'Poppins',sans-serif;color:var(--white);font-size:16px;line-height:1.6;}
+img,svg{max-width:100%;height:auto;display:block;}
 
-  .page{width:100%;min-height:100svh;background:var(--dark);display:flex;flex-direction:column;margin-bottom:0;page-break-after:always;overflow:hidden;}
-  .gold-bar{height:5px;background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-dim));flex-shrink:0;}
+/* ── LAYOUT ── */
+.page{width:100%;min-height:100svh;display:flex;flex-direction:column;page-break-after:always;}
+.bar{height:4px;background:linear-gradient(90deg,rgba(201,169,97,0.3),var(--gold),rgba(201,169,97,0.3));flex-shrink:0;}
+.head{padding:clamp(32px,5vw,52px) clamp(24px,6vw,64px) 0;text-align:center;position:relative;margin-bottom:clamp(24px,3vw,40px);flex-shrink:0;}
+.pg{position:absolute;top:clamp(32px,5vw,52px);right:clamp(24px,6vw,64px);font-size:11px;color:var(--dim);letter-spacing:2px;}
+.ey{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.h1{font-family:'Playfair Display',serif;font-size:clamp(28px,4.5vw,48px);font-weight:900;color:var(--white);line-height:1.05;}
+.h1 em{color:var(--gold);font-style:italic;}
+.body{flex:1;padding:0 clamp(24px,6vw,64px) clamp(32px,4vw,48px);display:flex;flex-direction:column;gap:clamp(18px,2.5vw,28px);}
+.foot{padding:14px clamp(24px,6vw,64px);border-top:1px solid rgba(201,169,97,0.1);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+.fl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.fr{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);}
 
-  .ph{padding:clamp(28px,5vw,48px) clamp(20px,6vw,60px) 0;text-align:center;position:relative;margin-bottom:clamp(18px,3vw,30px);flex-shrink:0;}
-  .pn{position:absolute;top:clamp(28px,5vw,48px);right:clamp(20px,6vw,60px);font-size:11px;color:var(--text-dim);letter-spacing:2px;}
-  .ey{font-size:clamp(9px,1.5vw,11px);letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
-  .h1{font-family:'Playfair Display',serif;font-size:clamp(26px,4.5vw,48px);font-weight:900;color:var(--white);line-height:1.05;}
-  .h1 em{color:var(--gold);font-style:italic;}
-  .pb{flex:1;padding:0 clamp(20px,6vw,60px) clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:clamp(14px,2vw,22px);}
-  .pf{padding:clamp(12px,2vw,16px) clamp(20px,6vw,60px);border-top:1px solid rgba(201,169,97,0.12);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;flex-shrink:0;}
-  .ft{font-size:10px;letter-spacing:2px;text-transform:uppercase;}
-  .ft.b{color:var(--gold-dim);}.ft.c{color:var(--text-dim);}
+/* ── CARD ── */
+.card{background:var(--card);border:1px solid rgba(201,169,97,0.14);border-radius:6px;padding:clamp(18px,3vw,28px);}
+.card-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:clamp(16px,2vw,24px);}
 
-  .card{background:var(--dark3);border:1px solid rgba(201,169,97,0.14);border-radius:4px;padding:clamp(14px,2.5vw,22px);}
-  .ct{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:clamp(12px,2vw,18px);}
+/* ── GRIDS ── */
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,22px);}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.8vw,20px);}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.5vw,18px);}
+@media(max-width:800px){.g4{grid-template-columns:repeat(2,1fr);}.g3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr;}[style*="grid-template-columns"]{grid-template-columns:1fr !important;}.h1{font-size:26px;}.card{padding:16px;}}
 
-  .chip{display:inline-block;font-size:10px;letter-spacing:1px;font-weight:700;text-transform:uppercase;padding:4px 10px;border-radius:3px;white-space:nowrap;}
-  .chip.bl{background:rgba(201,169,97,0.12);color:var(--gold);}
-  .chip.am{background:rgba(201,169,97,0.10);color:var(--gold-dim);}
-  .chip.gr{background:rgba(201,169,97,0.12);color:var(--gold);}
-  .chip.gy{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.35);}
-  .chip.go{background:rgba(201,169,97,0.15);color:var(--gold);}
+/* ── ROW ── */
+.row{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;background:var(--row);border-radius:4px;gap:12px;}
+.row+.row{margin-top:6px;}
+.rl{font-size:14px;color:var(--white);flex:1;}
+.chip{font-size:10px;letter-spacing:1px;font-weight:600;text-transform:uppercase;padding:4px 11px;border-radius:3px;white-space:nowrap;background:var(--gold-faint);color:var(--gold);border:1px solid rgba(201,169,97,0.2);}
+.chip.dim{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.3);border-color:rgba(255,255,255,0.08);}
 
-  .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,2vw,20px);}
-  .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.5vw,16px);}
-  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.5vw,16px);}
+/* ── KPI ── */
+.kpi{background:var(--row);border-radius:4px;padding:18px 14px;text-align:center;}
+.knum{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,38px);font-weight:900;color:var(--white);line-height:1;margin-bottom:6px;}
+.klbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);}
 
-  @media(max-width:800px){.g4{grid-template-columns:repeat(2,1fr);}.g3{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr;}.h1{font-size:26px;}[style*="grid-template-columns"]{grid-template-columns:1fr !important;}}
+/* ── BAR ── */
+.brow{display:flex;align-items:center;gap:14px;margin-bottom:12px;flex-wrap:wrap;}
+.brow:last-child{margin-bottom:0;}
+.bname{font-size:13px;color:var(--white);width:110px;flex-shrink:0;}
+.btrack{flex:1;min-width:60px;height:8px;background:rgba(201,169,97,0.1);border-radius:4px;overflow:hidden;}
+.bfill{height:100%;border-radius:4px;background:var(--gold);}
+.bval{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--gold);min-width:44px;text-align:right;}
 
-  .sr{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;background:var(--dark4);border-radius:3px;gap:10px;}
-  .sr+.sr{margin-top:7px;}
-  .sl{font-size:13px;color:var(--text);flex:1;min-width:0;}
+/* ── STEP ── */
+.step{display:flex;gap:18px;align-items:flex-start;padding:18px 20px;background:var(--card);border-radius:6px;border-left:3px solid rgba(201,169,97,0.35);}
+.step+.step{margin-top:10px;}
+.sn{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:rgba(201,169,97,0.15);width:32px;flex-shrink:0;line-height:1;}
+.stitle{font-size:15px;font-weight:600;color:var(--white);margin-bottom:4px;}
+.ssub{font-size:13px;color:var(--dim);line-height:1.6;}
 
-  .callout{padding:14px 18px;border-radius:3px;border-left:4px solid;}
-  .callout.am{background:rgba(201,169,97,0.05);border-color:var(--gold-dim);}
-  .callout.gr{background:rgba(201,169,97,0.05);border-color:var(--gold);}
-  .callout.bl{background:rgba(201,169,97,0.04);border-color:var(--gold-dim);}
-  .callout.go{background:rgba(201,169,97,0.06);border-color:var(--gold);}
-  .callout h4{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
-  .callout.am h4{color:var(--gold-dim);}.callout.gr h4{color:var(--gold);}
-  .callout.bl h4{color:var(--gold-dim);}.callout.go h4{color:var(--gold);}
-  .callout p{font-size:13px;line-height:1.7;color:var(--text);}
+/* ── DIVIDER ── */
+.divider{height:1px;background:rgba(201,169,97,0.12);}
 
-  .kpi{background:var(--dark4);border:1px solid rgba(201,169,97,0.12);border-radius:3px;padding:16px 10px;text-align:center;}
-  .kn{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,34px);font-weight:900;line-height:1;margin-bottom:5px;}
-  .kl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);}
+/* ── COVER ── */
+.cv{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(48px,8vw,80px) clamp(24px,6vw,72px);text-align:center;position:relative;}
+.wm{position:absolute;font-family:'Playfair Display',serif;font-size:clamp(160px,32vw,440px);font-weight:900;color:rgba(201,169,97,0.025);left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;line-height:1;overflow:hidden;white-space:nowrap;}
+.ct-ey{font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.ct-t{font-family:'Playfair Display',serif;font-size:clamp(52px,10vw,96px);font-weight:900;color:var(--white);line-height:0.92;margin-bottom:14px;}
+.ct-t span{color:var(--gold);font-style:italic;display:block;}
+.ct-s{font-family:'Playfair Display',serif;font-size:clamp(14px,2vw,18px);color:rgba(201,169,97,0.7);font-style:italic;margin-bottom:32px;}
+.cd{width:48px;height:1px;background:var(--gold);margin:0 auto 32px;}
+.meta{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(201,169,97,0.1);border:1px solid rgba(201,169,97,0.12);max-width:480px;width:100%;margin:0 auto 32px;border-radius:4px;overflow:hidden;}
+.mi{background:var(--card);padding:16px 18px;}
+.mi label{display:block;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:5px;}
+.mi value{display:block;font-size:14px;font-weight:600;color:var(--white);}
+.sband{width:100%;max-width:480px;margin:0 auto;background:var(--card);border:1px solid rgba(201,169,97,0.18);border-radius:6px;padding:20px 28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.sscore{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;color:var(--white);line-height:1;}
+.sof{font-size:16px;color:var(--dim);font-family:'Playfair Display',serif;}
+.strk{flex:1;min-width:60px;height:6px;background:rgba(201,169,97,0.1);border-radius:3px;overflow:hidden;}
+.sfil{height:100%;border-radius:3px;background:linear-gradient(90deg,rgba(201,169,97,0.5),var(--gold));}
+.svd{font-size:12px;color:var(--gold);font-weight:600;letter-spacing:1px;flex:1;min-width:140px;}
+.cv-foot{padding:18px clamp(24px,6vw,64px);display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(201,169,97,0.1);flex-wrap:wrap;gap:8px;}
+.ag{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--gold);}
+.ags{font-size:9px;letter-spacing:3px;color:var(--dim);text-transform:uppercase;}
 
-  /* COVER */
-  .cv-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(40px,7vw,70px) clamp(20px,6vw,72px);text-align:center;position:relative;}
-  .wm{position:absolute;font-family:'Playfair Display',serif;font-size:clamp(120px,30vw,400px);font-weight:900;color:rgba(201,169,97,0.03);left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;line-height:1;overflow:hidden;white-space:nowrap;}
-  .c-ey{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
-  .c-t{font-family:'Playfair Display',serif;font-size:clamp(52px,10vw,96px);font-weight:900;color:var(--white);line-height:0.92;margin-bottom:12px;}
-  .c-t span{color:var(--gold);font-style:italic;display:block;}
-  .c-s{font-family:'Playfair Display',serif;font-size:clamp(13px,2vw,19px);color:var(--gold-dim);font-style:italic;margin-bottom:28px;}
-  .c-div{width:60px;height:1px;background:var(--gold);margin:0 auto 28px;}
-  .c-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,169,97,0.12);border:1px solid rgba(201,169,97,0.12);width:100%;max-width:680px;margin:0 auto 28px;border-radius:3px;overflow:hidden;}
-  .cmi{background:var(--dark3);padding:clamp(12px,2vw,16px) clamp(10px,1.5vw,14px);}
-  .cmi label{display:block;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);margin-bottom:5px;}
-  .cmi value{display:block;font-size:clamp(12px,1.8vw,14px);font-weight:600;color:var(--white);}
-  .sb{width:100%;background:var(--dark3);border:1px solid rgba(201,169,97,0.2);border-radius:4px;padding:clamp(16px,3vw,22px) clamp(18px,3vw,28px);display:flex;align-items:center;gap:18px;flex-wrap:wrap;max-width:680px;margin:0 auto;}
-  .sb-sc{font-family:'Playfair Display',serif;font-size:clamp(40px,8vw,60px);font-weight:900;color:var(--white);line-height:1;}
-  .sb-of{font-size:16px;color:var(--text-dim);font-family:'Playfair Display',serif;}
-  .sb-tr{flex:1;min-width:60px;height:8px;background:var(--dark5);border-radius:4px;overflow:hidden;}
-  .sb-fi{height:100%;border-radius:4px;}
-  .sb-vd{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;flex:1;min-width:160px;}
-  .cv-ft{padding:clamp(14px,2vw,20px) clamp(20px,6vw,60px);display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(201,169,97,0.12);flex-wrap:wrap;gap:8px;}
-  .ag-n{font-family:'Playfair Display',serif;font-size:clamp(15px,2vw,18px);font-weight:700;color:var(--gold);}
-  .ag-s{font-size:9px;letter-spacing:3px;color:var(--gold-dim);text-transform:uppercase;}
+/* ── PROOF BOX ── */
+.proof{background:rgba(201,169,97,0.06);border:1px solid rgba(201,169,97,0.22);border-radius:6px;padding:22px 24px;text-align:center;}
 
-  /* PACKAGE STEP */
-  .step{display:flex;gap:16px;align-items:flex-start;padding:16px 18px;background:var(--dark3);border-radius:4px;border-left:4px solid rgba(201,169,97,0.25);}
-  .step-n{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:rgba(201,169,97,0.2);line-height:1;flex-shrink:0;width:36px;}
-  .step-body{flex:1;}
-  .step-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px;}
-  .step-sub{font-size:12px;color:var(--text);}
+/* ── CTA ── */
+.cta{background:var(--card);border:1px solid rgba(201,169,97,0.18);border-radius:6px;padding:clamp(20px,3vw,28px) clamp(20px,3vw,32px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cta-btn{background:var(--gold);color:var(--dark);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;border-radius:4px;white-space:nowrap;}
 
-  /* PLATFORM SCORE MINI */
-  .pscore{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--dark4);border-radius:3px;}
-  .pscore+.pscore{margin-top:6px;}
-  .ps-name{font-size:13px;color:var(--white);font-weight:600;min-width:80px;}
-  .ps-bar-wrap{flex:1;height:8px;background:var(--dark5);border-radius:4px;overflow:hidden;}
-  .ps-bar{height:100%;border-radius:4px;}
-  .ps-score{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;min-width:36px;text-align:right;}
-
-  @media(max-width:480px){.c-meta{grid-template-columns:1fr 1fr !important;}}
-  @media print{body{background:#0c0b09;}.page{page-break-after:always;min-height:297mm;}}
+@media print{body{background:var(--dark);}.page{page-break-after:always;min-height:297mm;}}
 </style>
 </head>
 <body>
 
 
-<!-- ══════════════════════════════════════
-     PAGE 1 — COVER
-══════════════════════════════════════ -->
+<!-- ═══════ PAGE 1 — COVER ═══════ -->
 <div class="page">
-  <div class="gold-bar"></div>
-  <div class="cv-body">
+  <div class="bar"></div>
+  <div class="cv">
     <div class="wm">E</div>
-    <div class="c-ey">Elite Consultant · Confidential</div>
-    <div class="c-t">Elite<span>House Spa</span></div>
-    <div class="c-s">بيت النخبة للمساج · Digital Growth Proposal · April 2026</div>
-    <div class="c-div"></div>
-    <div class="c-meta" style="grid-template-columns:repeat(2,1fr);max-width:500px;">
-      <div class="cmi"><label>Business</label><value>Elite House Spa</value></div>
-      <div class="cmi"><label>Branches</label><value>Al Narjis · Al Salam</value></div>
-      <div class="cmi"><label>Audit Date</label><value>April 2026</value></div>
-      <div class="cmi"><label>Prepared By</label><value>Elite Consultant</value></div>
+    <div class="ct-ey">Elite Consultant · Confidential</div>
+    <div class="ct-t">Elite<span>House Spa</span></div>
+    <div class="ct-s">بيت النخبة للمساج · Digital Growth Proposal · April 2026</div>
+    <div class="cd"></div>
+    <div class="meta">
+      <div class="mi"><label>Business</label><value>Elite House Spa</value></div>
+      <div class="mi"><label>Branches</label><value>Al Narjis · Al Salam</value></div>
+      <div class="mi"><label>Audit Date</label><value>April 2026</value></div>
+      <div class="mi"><label>Prepared By</label><value>Elite Consultant</value></div>
     </div>
-    <div class="sb">
+    <div class="sband">
       <div>
-        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);margin-bottom:4px;">Current Digital Score</div>
-        <div style="display:flex;align-items:baseline;gap:6px;">
-          <div class="sb-sc">42</div>
-          <div class="sb-of">/100</div>
-        </div>
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:4px;">Digital Score</div>
+        <div style="display:flex;align-items:baseline;gap:6px;"><div class="sscore">42</div><div class="sof">/100</div></div>
       </div>
-      <div class="sb-tr"><div class="sb-fi" style="width:42%;background:linear-gradient(90deg,var(--gold-dim),var(--gold));"></div></div>
-      <div class="sb-vd" style="color:var(--gold);">Active Everywhere · Not Converting to New Bookings</div>
+      <div class="strk"><div class="sfil" style="width:42%;"></div></div>
+      <div class="svd">Active everywhere · Not converting to bookings</div>
     </div>
   </div>
-  <div class="cv-ft">
-    <div><div class="ag-n">Elite Consultant</div><div class="ag-s">eliteconsultantco.com · Your Compass To Real Growth</div></div>
-    <div style="font-size:10px;color:var(--text-dim);letter-spacing:2px;">CONFIDENTIAL · APRIL 2026</div>
+  <div class="cv-foot">
+    <div><div class="ag">Elite Consultant</div><div class="ags">eliteconsultantco.com · Your Compass To Real Growth</div></div>
+    <div style="font-size:10px;color:var(--dim);letter-spacing:2px;">CONFIDENTIAL · APRIL 2026</div>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════════
-     PAGE 2 — 1-PAGE AUDIT
-══════════════════════════════════════ -->
+<!-- ═══════ PAGE 2 — AUDIT ═══════ -->
 <div class="page">
-  <div class="gold-bar"></div>
-  <div class="ph">
-    <div class="ey">Section 01 · What We Found</div>
-    <div class="h1">Your Digital Presence<em> Today</em></div>
-    <div class="pn">02 / 04</div>
+  <div class="bar"></div>
+  <div class="head">
+    <div class="ey">What We Found</div>
+    <div class="h1">Your Digital Presence <em>Today</em></div>
+    <div class="pg">02 / 04</div>
   </div>
-  <div class="pb">
+  <div class="body">
 
-    <!-- Platform scores -->
     <div class="g2">
+
+      <!-- Platform scores -->
       <div class="card">
-        <div class="ct">Platform Health</div>
-        <div class="pscore">
-          <div class="ps-name">📸 Instagram</div>
-          <div class="ps-bar-wrap"><div class="ps-bar" style="width:40%;background:var(--gold-dim);"></div></div>
-          <div class="ps-score" style="color:var(--text-dim);">40</div>
-          <div class="chip am">No Reels</div>
+        <div class="card-title">Platform Health</div>
+        <div class="brow">
+          <div class="bname">📸 Instagram</div>
+          <div class="btrack"><div class="bfill" style="width:40%;opacity:0.6;"></div></div>
+          <div class="bval" style="opacity:0.6;">40</div>
+          <div class="chip">No Reels</div>
         </div>
-        <div class="pscore">
-          <div class="ps-name">🎵 TikTok</div>
-          <div class="ps-bar-wrap"><div class="ps-bar" style="width:50%;background:var(--gold);"></div></div>
-          <div class="ps-score" style="color:var(--text-dim);">50</div>
-          <div class="chip go">1 Viral · Rest Low</div>
+        <div class="brow">
+          <div class="bname">🎵 TikTok</div>
+          <div class="btrack"><div class="bfill" style="width:50%;opacity:0.7;"></div></div>
+          <div class="bval" style="opacity:0.7;">50</div>
+          <div class="chip">1 Viral · Rest Low</div>
         </div>
-        <div class="pscore">
-          <div class="ps-name">👻 Snapchat</div>
-          <div class="ps-bar-wrap"><div class="ps-bar" style="width:60%;background:var(--gold);"></div></div>
-          <div class="ps-score" style="color:var(--gold);">60</div>
-          <div class="chip gr">Active ✓</div>
+        <div class="brow">
+          <div class="bname">👻 Snapchat</div>
+          <div class="btrack"><div class="bfill" style="width:60%;opacity:0.8;"></div></div>
+          <div class="bval" style="opacity:0.8;">60</div>
+          <div class="chip">Active ✓</div>
         </div>
-        <div class="pscore">
-          <div class="ps-name">🔍 Google</div>
-          <div class="ps-bar-wrap"><div class="ps-bar" style="width:60%;background:var(--gold);"></div></div>
-          <div class="ps-score" style="color:var(--gold);">60</div>
-          <div class="chip gr">Responding ✓</div>
+        <div class="brow">
+          <div class="bname">🔍 Google</div>
+          <div class="btrack"><div class="bfill" style="width:60%;opacity:0.8;"></div></div>
+          <div class="bval" style="opacity:0.8;">60</div>
+          <div class="chip">Responding ✓</div>
         </div>
-        <div class="pscore">
-          <div class="ps-name">▶ YouTube</div>
-          <div class="ps-bar-wrap"><div class="ps-bar" style="width:10%;background:var(--gold-dim);min-width:6px;"></div></div>
-          <div class="ps-score" style="color:var(--gold);">10</div>
-          <div class="chip bl">9 Videos Only</div>
+        <div class="brow">
+          <div class="bname">▶ YouTube</div>
+          <div class="btrack"><div class="bfill" style="width:10%;opacity:0.4;"></div></div>
+          <div class="bval" style="opacity:0.4;">10</div>
+          <div class="chip dim">9 Videos</div>
         </div>
-        <div class="pscore">
-          <div class="ps-name">🐦 X/Twitter</div>
-          <div class="ps-bar-wrap"><div class="ps-bar" style="width:1%;background:#555;min-width:4px;"></div></div>
-          <div class="ps-score" style="color:#555;">0</div>
-          <div class="chip gy">0 Posts Ever</div>
+        <div class="brow">
+          <div class="bname">🐦 X/Twitter</div>
+          <div class="btrack"></div>
+          <div class="bval" style="opacity:0.2;">0</div>
+          <div class="chip dim">Never Posted</div>
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:14px;">
+      <!-- Right column -->
+      <div style="display:flex;flex-direction:column;gap:18px;">
+
         <!-- Viral proof -->
-        <div style="background:rgba(201,169,97,0.06);border:1px solid rgba(201,169,97,0.25);border-radius:4px;padding:16px 18px;text-align:center;">
-          <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Proof the Demand Exists</div>
-          <div style="font-family:'Playfair Display',serif;font-size:clamp(40px,7vw,58px);font-weight:900;color:var(--white);line-height:1;margin-bottom:4px;">1.7M</div>
-          <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;">Views · 1 TikTok Video</div>
-          <div style="font-size:13px;color:var(--text);">People in Riyadh watched this. They are interested. They just did not know how to book.</div>
+        <div class="proof">
+          <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Proof the Demand Exists</div>
+          <div style="font-family:'Playfair Display',serif;font-size:clamp(48px,7vw,64px);font-weight:900;color:var(--white);line-height:1;margin-bottom:4px;">1.7M</div>
+          <div style="font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">Views · One TikTok Video</div>
+          <div style="font-size:14px;color:var(--white);">People in Riyadh already want this. They just couldn't find how to book.</div>
         </div>
 
         <!-- Key numbers -->
         <div class="g2" style="gap:10px;">
-          <div class="kpi">
-            <div class="kn" style="color:var(--gold-dim);">1,847</div>
-            <div class="kl">IG Followers</div>
-          </div>
-          <div class="kpi">
-            <div class="kn" style="color:var(--white);">2,720</div>
-            <div class="kl">TikTok Followers</div>
-          </div>
-          <div class="kpi">
-            <div class="kn" style="color:var(--gold);">4.4★</div>
-            <div class="kl">Google Rating</div>
-          </div>
-          <div class="kpi">
-            <div class="kn" style="color:var(--gold);">57</div>
-            <div class="kl">Google Reviews</div>
-          </div>
+          <div class="kpi"><div class="knum">1,847</div><div class="klbl">IG Followers</div></div>
+          <div class="kpi"><div class="knum">2,720</div><div class="klbl">TikTok Followers</div></div>
+          <div class="kpi"><div class="knum">4.4★</div><div class="klbl">Google Rating</div></div>
+          <div class="kpi"><div class="knum">57</div><div class="klbl">Google Reviews</div></div>
         </div>
       </div>
     </div>
 
-    <!-- 3 core findings -->
+    <div class="divider"></div>
+
+    <!-- 3 findings -->
     <div class="g3">
-      <div class="callout am">
-        <h4>📱 Finding 1 · Content Gap</h4>
-        <p>Instagram and TikTok are posting images. Images reach a fraction of the audience that short videos reach. The same content filmed as a 20-second clip gets 5–10x more views.</p>
+      <div>
+        <div style="font-size:22px;margin-bottom:10px;">📱</div>
+        <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Content Gap</div>
+        <div style="font-size:14px;color:var(--white);line-height:1.65;">Images are posted instead of short videos. Videos reach 5–10x more people on TikTok and Instagram.</div>
       </div>
-      <div class="callout bl">
-        <h4>🔗 Finding 2 · Booking Path</h4>
-        <p>People watch, but there is no clear next step in the post. No "book now" link, no phone number in the caption. Interested viewers leave without taking action.</p>
+      <div>
+        <div style="font-size:22px;margin-bottom:10px;">🔗</div>
+        <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Booking Path</div>
+        <div style="font-size:14px;color:var(--white);line-height:1.65;">No direct booking link in posts. Interested viewers leave without taking action.</div>
       </div>
-      <div class="callout go">
-        <h4>📡 Finding 3 · Missed Platforms</h4>
-        <p>Snapchat is active but not advertised on. No paid ads anywhere. The 1.7M-view video got there organically — paid ads would reach that audience every week on demand.</p>
+      <div>
+        <div style="font-size:22px;margin-bottom:10px;">📡</div>
+        <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">No Paid Ads</div>
+        <div style="font-size:14px;color:var(--white);line-height:1.65;">Zero advertising spend. The 1.7M video happened by chance. Ads make it happen every week.</div>
       </div>
     </div>
 
   </div>
-  <div class="pf">
-    <span class="ft b">Elite Consultant · Digital Audit</span>
-    <span class="ft c">Confidential · Elite House Spa · April 2026</span>
+  <div class="foot">
+    <span class="fl">Elite Consultant · Digital Audit</span>
+    <span class="fr">Confidential · Elite House Spa · April 2026</span>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════════
-     PAGE 3 — STRATEGY: HOW WE GET NEW CUSTOMERS
-══════════════════════════════════════ -->
+<!-- ═══════ PAGE 3 — STRATEGY ═══════ -->
 <div class="page">
-  <div class="gold-bar"></div>
-  <div class="ph">
-    <div class="ey">Section 02 · The Customer Acquisition Strategy</div>
-    <div class="h1">How We Bring<em> New Customers In</em></div>
-    <div class="pn">03 / 04</div>
+  <div class="bar"></div>
+  <div class="head">
+    <div class="ey">How We Bring New Customers In</div>
+    <div class="h1">The Customer <em>Acquisition Plan</em></div>
+    <div class="pg">03 / 04</div>
   </div>
-  <div class="pb">
+  <div class="body">
 
-    <!-- Simple 4-step flow -->
+    <!-- 4-step journey -->
     <div class="card">
-      <div class="ct">The 4-Step Journey from Stranger to Booked Customer</div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
+      <div class="card-title">The Journey from Stranger to Booked Customer</div>
 
-        <div class="step" style="border-left-color:rgba(201,169,97,0.7);">
-          <div class="step-n" style="color:rgba(201,169,97,0.2);">1</div>
-          <div class="step-body">
-            <div class="step-title">They Discover Elite Spa</div>
-            <div class="step-sub">A 20-second video appears on their TikTok, Instagram, or Snapchat feed. They see the atmosphere, the treatment, the offer. They stop scrolling.</div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;">
-            <div class="chip bl">TikTok</div>
-            <div class="chip am">Instagram</div>
-            <div style="font-size:10px;letter-spacing:1px;color:var(--gold);background:rgba(201,169,97,0.08);border:1px solid rgba(201,169,97,0.2);padding:4px 10px;border-radius:3px;font-weight:700;text-transform:uppercase;">Snapchat</div>
-          </div>
+      <div class="step">
+        <div class="sn">1</div>
+        <div style="flex:1;">
+          <div class="stitle">🎯 They Discover Elite Spa</div>
+          <div class="ssub">A short video appears on their TikTok, Instagram, or Snapchat. They see the atmosphere and the offer. They stop scrolling.</div>
         </div>
-
-        <div class="step" style="border-left-color:var(--gold-dim);">
-          <div class="step-n" style="color:rgba(201,169,97,0.2);">2</div>
-          <div class="step-body">
-            <div class="step-title">They Want to Book</div>
-            <div class="step-sub">The caption shows the price, the session type, and a direct WhatsApp number. One tap and they are talking to the branch. No searching, no friction.</div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;">
-            <div class="chip am">WhatsApp CTA</div>
-            <div class="chip go">Direct Number</div>
-          </div>
+        <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;">
+          <div class="chip">TikTok</div>
+          <div class="chip">Instagram</div>
+          <div class="chip">Snapchat</div>
         </div>
+      </div>
 
-        <div class="step" style="border-left-color:rgba(201,169,97,0.7);">
-          <div class="step-n" style="color:rgba(201,169,97,0.25);">3</div>
-          <div class="step-body">
-            <div class="step-title">They Check You on Google</div>
-            <div class="step-sub">Before confirming, they Google "Elite Spa Riyadh." They see 4.4 stars and an active owner who responds to every review. They trust. They book.</div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;">
-            <div class="chip gr">4.4★ Google</div>
-            <div class="chip gr">Owner Replies ✓</div>
-          </div>
+      <div class="step">
+        <div class="sn">2</div>
+        <div style="flex:1;">
+          <div class="stitle">📞 They Book in One Tap</div>
+          <div class="ssub">The caption shows the service, the price, and a direct WhatsApp number. One tap — they're booked.</div>
         </div>
-
-        <div class="step" style="border-left-color:rgba(201,169,97,0.7);">
-          <div class="step-n" style="color:rgba(201,169,97,0.2);">4</div>
-          <div class="step-body">
-            <div class="step-title">They Come Back and Tell Others</div>
-            <div class="step-sub">After the session, they receive a message asking for a Google review. They leave 5 stars. That review is seen by the next 100 people who search for Elite Spa.</div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;">
-            <div class="chip go">Review Request</div>
-            <div class="chip gr">Word of Mouth</div>
-          </div>
+        <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;">
+          <div class="chip">WhatsApp CTA</div>
+          <div class="chip">Direct Number</div>
         </div>
+      </div>
 
+      <div class="step">
+        <div class="sn">3</div>
+        <div style="flex:1;">
+          <div class="stitle">⭐ They Trust You on Google</div>
+          <div class="ssub">They search "Elite Spa Riyadh" and see 4.4 stars with an owner who responds to every review. That's what confirms the booking.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;">
+          <div class="chip">4.4★ Rating</div>
+          <div class="chip">Owner Replies ✓</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="sn">4</div>
+        <div style="flex:1;">
+          <div class="stitle">🔁 They Come Back & Tell Others</div>
+          <div class="ssub">After the session, they receive a review request. Their 5-star review is the next customer's reason to book.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;">
+          <div class="chip">Review Request</div>
+          <div class="chip">Word of Mouth</div>
+        </div>
       </div>
     </div>
 
-    <!-- Why paid ads matter — simple visual -->
+    <div class="divider"></div>
+
+    <!-- Without vs With -->
     <div class="g2">
       <div class="card">
-        <div class="ct" style="color:var(--gold);">Without Paid Ads — Today</div>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <div class="sr">
-            <span class="sl">People who see your content weekly</span>
-            <span style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold-dim);">~500</span>
-          </div>
-          <div class="sr">
-            <span class="sl">How they find you</span>
-            <span style="font-size:12px;color:var(--text-dim);">Only if they follow you</span>
-          </div>
-          <div class="sr">
-            <span class="sl">New customers from content</span>
-            <span style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);">Few</span>
-          </div>
-        </div>
+        <div class="card-title">Without Paid Ads · Today</div>
+        <div class="row"><span class="rl">Weekly reach</span><span style="font-family:'Playfair Display',serif;font-size:22px;color:rgba(201,169,97,0.5);">~500</span></div>
+        <div class="row" style="margin-top:6px;"><span class="rl">Who sees it</span><span style="font-size:13px;color:var(--dim);">Existing followers only</span></div>
+        <div class="row" style="margin-top:6px;"><span class="rl">New customers</span><span style="font-size:13px;color:var(--dim);">Few · unpredictable</span></div>
       </div>
-      <div class="card" style="border-color:rgba(201,169,97,0.25);">
-        <div class="ct" style="color:var(--gold);">With Paid Ads — Our Plan</div>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <div class="sr" style="background:rgba(201,169,97,0.06);border:1px solid rgba(201,169,97,0.18);">
-            <span class="sl">People who see your content weekly</span>
-            <span style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);">10,000+</span>
-          </div>
-          <div class="sr" style="background:rgba(201,169,97,0.06);border:1px solid rgba(201,169,97,0.18);">
-            <span class="sl">How they find you</span>
-            <span style="font-size:12px;color:var(--gold);">Targeted: Riyadh men 22–45</span>
-          </div>
-          <div class="sr" style="background:rgba(201,169,97,0.06);border:1px solid rgba(201,169,97,0.18);">
-            <span class="sl">New customers from content</span>
-            <span style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);">Consistent</span>
-          </div>
-        </div>
+      <div class="card" style="border-color:rgba(201,169,97,0.3);">
+        <div class="card-title" style="color:var(--white);">With Paid Ads · Our Plan</div>
+        <div class="row" style="background:rgba(201,169,97,0.08);"><span class="rl">Weekly reach</span><span style="font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);">10,000+</span></div>
+        <div class="row" style="margin-top:6px;background:rgba(201,169,97,0.08);"><span class="rl">Who sees it</span><span style="font-size:13px;color:var(--gold);">Men in Riyadh · targeted</span></div>
+        <div class="row" style="margin-top:6px;background:rgba(201,169,97,0.08);"><span class="rl">New customers</span><span style="font-size:13px;color:var(--gold);">Consistent · every week</span></div>
       </div>
     </div>
 
   </div>
-  <div class="pf">
-    <span class="ft b">Elite Consultant · Growth Strategy</span>
-    <span class="ft c">Confidential · Elite House Spa · April 2026</span>
+  <div class="foot">
+    <span class="fl">Elite Consultant · Growth Strategy</span>
+    <span class="fr">Confidential · Elite House Spa · April 2026</span>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════════
-     PAGE 4 — THE PACKAGE
-══════════════════════════════════════ -->
+<!-- ═══════ PAGE 4 — PACKAGE ═══════ -->
 <div class="page">
-  <div class="gold-bar"></div>
-  <div class="ph">
-    <div class="ey">Section 03 · What Elite Consultant Does For You</div>
-    <div class="h1">The Monthly<em> Growth Package</em></div>
-    <div class="pn">04 / 04</div>
+  <div class="bar"></div>
+  <div class="head">
+    <div class="ey">What We Deliver Every Month</div>
+    <div class="h1">The Monthly <em>Growth Package</em></div>
+    <div class="pg">04 / 04</div>
   </div>
-  <div class="pb">
+  <div class="body">
 
-    <!-- 4 service blocks -->
-    <div class="g2">
-
-      <div style="display:flex;flex-direction:column;gap:14px;">
-
-        <div class="card" style="border-top:3px solid var(--gold);">
-          <div class="ct">01 · Content Production</div>
-          <div style="display:flex;flex-direction:column;gap:7px;">
-            <div class="sr"><span class="sl">📱 12 short videos per month</span><div class="chip go">IG · TikTok · Snap</div></div>
-            <div class="sr"><span class="sl">🖼 12 designed posts per month</span><div class="chip go">All platforms</div></div>
-            <div class="sr"><span class="sl">📖 10 Stories per week</span><div class="chip go">IG · Snap</div></div>
-            <div class="sr"><span class="sl">✍️ Arabic captions with booking CTA</span><div class="chip gr">Every post</div></div>
-            <div class="sr"><span class="sl">📅 Monthly content calendar</span><div class="chip gr">Planned in advance</div></div>
-          </div>
-        </div>
-
-        <div class="card" style="border-top:3px solid var(--gold);">
-          <div class="ct">02 · Paid Advertising</div>
-          <div style="display:flex;flex-direction:column;gap:7px;">
-            <div class="sr"><span class="sl">🎯 TikTok Spark Ads</span><div class="chip bl">Boost best videos</div></div>
-            <div class="sr"><span class="sl">📸 Instagram Reels Boost</span><div class="chip bl">Top posts</div></div>
-            <div class="sr" style="background:rgba(255,252,0,0.03);border:1px solid rgba(201,169,97,0.1);"><span class="sl">👻 Snapchat Ads</span><div style="font-size:10px;letter-spacing:1px;color:var(--gold);background:rgba(201,169,97,0.08);border:1px solid rgba(201,169,97,0.2);padding:4px 10px;border-radius:3px;font-weight:700;text-transform:uppercase;white-space:nowrap;">New Men's Audience</div></div>
-            <div class="sr"><span class="sl">📊 Monthly ad performance report</span><div class="chip bl">Transparent results</div></div>
-          </div>
-        </div>
-
+    <!-- 4 delivery numbers -->
+    <div class="g4">
+      <div style="text-align:center;padding:clamp(16px,2.5vw,24px) 10px;background:var(--card);border-radius:6px;border-top:3px solid var(--gold);">
+        <div style="font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,56px);font-weight:900;color:var(--white);line-height:1;margin-bottom:6px;">12</div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Videos</div>
+        <div style="font-size:12px;color:var(--dim);">IG · TikTok · Snap</div>
       </div>
-
-      <div style="display:flex;flex-direction:column;gap:14px;">
-
-        <div class="card" style="border-top:3px solid var(--gold);">
-          <div class="ct">03 · Google & Reputation</div>
-          <div style="display:flex;flex-direction:column;gap:7px;">
-            <div class="sr"><span class="sl">⭐ Respond to all new reviews</span><div class="chip gr">Both branches</div></div>
-            <div class="sr"><span class="sl">📨 Post-session review requests</span><div class="chip gr">More 5-star reviews</div></div>
-            <div class="sr"><span class="sl">📍 Google Posts weekly</span><div class="chip gr">Offers & updates</div></div>
-            <div class="sr"><span class="sl">🎯 Goal: 200+ reviews per branch</span><div class="chip go">Trust building</div></div>
-          </div>
-        </div>
-
-        <div class="card" style="border-top:3px solid var(--gold-dim);">
-          <div class="ct">04 · Account Management</div>
-          <div style="display:flex;flex-direction:column;gap:7px;">
-            <div class="sr"><span class="sl">💬 Community management · DMs & comments</span><div class="chip am">Daily</div></div>
-            <div class="sr"><span class="sl">🔗 Fix booking funnel · all platforms</span><div class="chip am">First week</div></div>
-            <div class="sr"><span class="sl">📧 Brand email setup (not Gmail)</span><div class="chip am">Quick win</div></div>
-            <div class="sr"><span class="sl">📞 Monthly strategy call with Mr. Ahmad</span><div class="chip am">You stay in control</div></div>
-          </div>
-        </div>
-
+      <div style="text-align:center;padding:clamp(16px,2.5vw,24px) 10px;background:var(--card);border-radius:6px;border-top:3px solid rgba(201,169,97,0.5);">
+        <div style="font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,56px);font-weight:900;color:var(--white);line-height:1;margin-bottom:6px;">12</div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Posts</div>
+        <div style="font-size:12px;color:var(--dim);">All platforms</div>
+      </div>
+      <div style="text-align:center;padding:clamp(16px,2.5vw,24px) 10px;background:var(--card);border-radius:6px;border-top:3px solid rgba(201,169,97,0.5);">
+        <div style="font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,56px);font-weight:900;color:var(--white);line-height:1;margin-bottom:6px;">40</div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Stories</div>
+        <div style="font-size:12px;color:var(--dim);">10 per week</div>
+      </div>
+      <div style="text-align:center;padding:clamp(16px,2.5vw,24px) 10px;background:var(--card);border-radius:6px;border-top:3px solid rgba(201,169,97,0.3);">
+        <div style="font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,48px);font-weight:900;color:var(--white);line-height:1;margin-bottom:6px;">ADS</div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Boosted</div>
+        <div style="font-size:12px;color:var(--dim);">Best content only</div>
       </div>
     </div>
 
-    <!-- Delivery numbers -->
-    <div class="card">
-      <div class="ct">What You Receive Every Month</div>
-      <div class="g4">
-        <div style="text-align:center;padding:14px 8px;">
-          <div style="font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,52px);font-weight:900;color:var(--white);line-height:1;margin-bottom:4px;">12</div>
-          <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Videos</div>
-          <div style="font-size:11px;color:var(--text-dim);">IG · TikTok · Snap</div>
+    <!-- 4 service columns -->
+    <div class="g2">
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="card">
+          <div class="card-title">🎬 Content & Social</div>
+          <div class="row"><span class="rl">Short videos · booking-first format</span></div>
+          <div class="row" style="margin-top:6px;"><span class="rl">Arabic captions with direct CTA</span></div>
+          <div class="row" style="margin-top:6px;"><span class="rl">Monthly content calendar</span></div>
+          <div class="row" style="margin-top:6px;"><span class="rl">Community management · DMs daily</span></div>
         </div>
-        <div style="text-align:center;padding:14px 8px;">
-          <div style="font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,52px);font-weight:900;color:var(--white);line-height:1;margin-bottom:4px;">12</div>
-          <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Designed Posts</div>
-          <div style="font-size:11px;color:var(--text-dim);">All platforms</div>
-        </div>
-        <div style="text-align:center;padding:14px 8px;">
-          <div style="font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,52px);font-weight:900;color:var(--white);line-height:1;margin-bottom:4px;">40</div>
-          <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Stories</div>
-          <div style="font-size:11px;color:var(--text-dim);">10 per week</div>
-        </div>
-        <div style="text-align:center;padding:14px 8px;">
-          <div style="font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,52px);font-weight:900;color:var(--white);line-height:1;margin-bottom:4px;">4</div>
-          <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Ad Campaigns</div>
-          <div style="font-size:11px;color:var(--text-dim);">Best content boosted</div>
+        <div class="card">
+          <div class="card-title">📡 Paid Advertising</div>
+          <div class="row"><span class="rl">🎵 TikTok Spark Ads</span></div>
+          <div class="row" style="margin-top:6px;"><span class="rl">📸 Instagram Reels Boost</span></div>
+          <div class="row" style="margin-top:6px;"><span class="rl">👻 Snapchat Ads · targeted men</span></div>
+          <div class="row" style="margin-top:6px;"><span class="rl">📊 Monthly performance report</span></div>
         </div>
       </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="card">
+          <div class="card-title">⭐ Google & Reputation</div>
+          <div class="row"><span class="rl">Reply to all reviews · both branches</span></div>
+          <div class="row" style="margin-top:6px;"><span class="rl">Post-session review requests</span></div>
+          <div class="row" style="margin-top:6px;"><span class="rl">Google Posts weekly</span></div>
+          <div class="row" style="margin-top:6px;"><span class="rl">Target: 200+ reviews per branch</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">🔧 Setup & Management</div>
+          <div class="row"><span class="rl">🔗 Booking funnel fixed · all platforms</span></div>
+          <div class="row" style="margin-top:6px;"><span class="rl">📧 Brand email replacing Gmail</span></div>
+          <div class="row" style="margin-top:6px;"><span class="rl">📞 Monthly call · you stay in control</span></div>
+          <div class="row" style="margin-top:6px;"><span class="rl">📅 Weekly progress updates</span></div>
+        </div>
+      </div>
+
     </div>
 
     <!-- CTA -->
-    <div style="background:var(--dark3);border:1px solid rgba(201,169,97,0.2);border-radius:4px;padding:clamp(16px,3vw,24px) clamp(18px,3vw,28px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+    <div class="cta">
       <div style="flex:1;min-width:200px;">
-        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">The goal is simple</div>
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(16px,2.5vw,22px);color:var(--white);line-height:1.4;font-style:italic;">
-          "More people in Riyadh discover Elite Spa.<br>More of them book a session.<br>More of them come back."
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:8px;">The Goal</div>
+        <div style="font-family:'Playfair Display',serif;font-size:clamp(16px,2.5vw,22px);color:var(--white);line-height:1.45;font-style:italic;">
+          "More people discover Elite Spa.<br>More of them book. More come back."
         </div>
       </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;">
-        <div style="background:var(--gold);color:var(--dark);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:13px 28px;border-radius:3px;white-space:nowrap;">Let's Get Started</div>
-        <div style="font-size:11px;color:var(--text-dim);text-align:right;">eliteconsultantco.com<br><span style="font-size:9px;">No financial guarantees implied</span></div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;">
+        <div class="cta-btn">Let's Get Started</div>
+        <div style="font-size:10px;color:var(--dim);text-align:right;">eliteconsultantco.com<br><span style="font-size:9px;">No financial guarantees implied</span></div>
       </div>
     </div>
 
   </div>
-  <div class="pf">
-    <span class="ft b">Elite Consultant · Your Compass To Real Growth</span>
-    <span class="ft c">Confidential · Elite House Spa · April 2026</span>
+  <div class="foot">
+    <span class="fl">Elite Consultant · Your Compass To Real Growth</span>
+    <span class="fr">Confidential · Elite House Spa · April 2026</span>
   </div>
 </div>
 
